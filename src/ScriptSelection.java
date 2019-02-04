@@ -8,6 +8,8 @@ public class ScriptSelection {
     private JButton startButton;
     private JList list1;
     public JPanel selectionPanel;
+    private JButton debugWindowButton;
+
 
     public ScriptSelection() {
         list1.addListSelectionListener(new ListSelectionListener() {
@@ -22,6 +24,15 @@ public class ScriptSelection {
             public void actionPerformed(ActionEvent e) {
                 ChromoMain.frame.setVisible(false);
                 State.initScript();
+            }
+        });
+        debugWindowButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Thread debugger = new Thread(new DebugThread());
+                debugger.start();
+
             }
         });
     }

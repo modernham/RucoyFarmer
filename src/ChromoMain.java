@@ -5,6 +5,8 @@ import java.awt.*;
 public class ChromoMain {
     public static ScriptSelection Gui = new ScriptSelection();
     public static JFrame frame = new JFrame("ChromoScape");
+    public static String windowName = "Old School RuneScape";
+    static public  WindowHandler window = new WindowHandler(windowName);
 
     public static void main(String[] args) {
         //Create GUI
