@@ -1,4 +1,6 @@
+package botMain;
 
+import botMain.State;
 
 import java.awt.*;
 import java.awt.event.InputEvent;

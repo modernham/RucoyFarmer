@@ -1,3 +1,7 @@
+package botMain;
+
+import GUI.Debug;
+
 import javax.swing.*;
 import java.awt.*;
 

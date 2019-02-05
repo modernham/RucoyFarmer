@@ -1,3 +1,9 @@
+package GUI;
+
+import botMain.ChromoMain;
+import botMain.DebugThread;
+import botMain.State;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;

@@ -1,3 +1,5 @@
+package botMain;
+
 import java.awt.*;
 import java.util.Arrays;
 import com.sun.jna.*;

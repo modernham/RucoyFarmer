@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ChromoScape:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ChromoScape_jar</output-path>
+    <root id="archive" name="ChromoScape.jar">
+      <element id="module-output" name="ChromoScape" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jna-platform-5.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jna-5.2.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="jna-5.2.0" />
+      <element id="library" level="project" name="jna-platform-5.2.0" />
+    </root>
+  </artifact>
+</component>

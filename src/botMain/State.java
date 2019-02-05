@@ -1,3 +1,9 @@
+package botMain;
+
+import GUI.HerbCleaner;
+import GUI.ScriptSelection;
+import botMain.ColorFinder;
+
 import javax.swing.*;
 
 public class State {
@@ -10,7 +16,7 @@ public class State {
     //Tools Creation
     public static ColorFinder colorfinder = new ColorFinder();
     public static Mouse mouse = new Mouse();
-    static int scriptIndex;
+    public static int scriptIndex;
 
     //Create Windows
     public static JFrame herbFrame = new JFrame("Herb Cleaner");
@@ -36,6 +42,7 @@ public class State {
                 herbFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 herbFrame.pack();
                 herbFrame.setVisible(true);
+                scripts.HerbCleaner.start();
                 break;
             case 1:
                 break;
