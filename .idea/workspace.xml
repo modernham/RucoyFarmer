@@ -6,45 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8261e7d5-f58d-4223-8148-923d6e3257a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ChromoScape_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/HerbCleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChromoScape.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ChromoScape.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/ChromoMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/ColorFinder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/Debug.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/DebugThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/HerbCleaner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/Mouse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/ScriptSelection$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/ScriptSelection$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/ScriptSelection$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/ScriptSelection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/State.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/WindowHandler$GetWindowRectException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/WindowHandler$User32.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/WindowHandler$WindowNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/WindowHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/com/intellij/uiDesigner/core/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChromoMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botMain/ChromoMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ColorFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botMain/ColorFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Debug.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Debug.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Debug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DebugThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botMain/DebugThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HerbCleaner.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/HerbCleaner.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HerbCleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/HerbCleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botMain/Mouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScriptSelection.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ScriptSelection.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScriptSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ScriptSelection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botMain/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WindowHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botMain/WindowHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="8261e7d5-f58d-4223-8148-923d6e3257a5" name="Default Changelist" comment="Changelist&#10;Fixed packages System&#10;Stared working on the findColors Function" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -118,8 +80,8 @@
       <file leaf-file-name="ColorFinder.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/botMain/ColorFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="544">
+              <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -287,6 +249,14 @@
       <option name="presentableId" value="Default" />
       <updated>1549163307037</updated>
     </task>
+    <task id="LOCAL-00001" summary="Changelist&#10;Fixed packages System&#10;Stared working on the findColors Function">
+      <created>1549344244026</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1549344244026</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -324,6 +294,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changelist&#10;Fixed packages System&#10;Stared working on the findColors Function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changelist&#10;Fixed packages System&#10;Stared working on the findColors Function" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/botMain/ChromoMain.java">
@@ -509,8 +483,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/botMain/ColorFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="544">
+          <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
