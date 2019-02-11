@@ -38,9 +38,7 @@
         </constraints>
         <properties>
           <model>
-            <item value="Herb Cleaner"/>
-            <item value="AIO Mine"/>
-            <item value="AIO Woodcut"/>
+            <item value="Slayer"/>
           </model>
         </properties>
       </component>
