@@ -1,8 +1,12 @@
 package scripts;
+import GUI.SlayerGUI;
+import Tools.getState;
 import botMain.State;
 
 import javax.swing.*;
 import java.awt.*;
+
+import static Tools.getState.STATE.IDLE;
 
 public abstract class Slayer {
     public static Rectangle MAINSCREEN = new Rectangle(110,82,900,525);
@@ -11,6 +15,8 @@ public abstract class Slayer {
 
 
     public static void start(){
+
+        //Assign monster Colors
         Point point = new Point();
         System.out.println("Starting Slayer");
         switch (State.monsterIndex){
@@ -21,20 +27,23 @@ public abstract class Slayer {
             color2 [0] = 0.036231887f;
             color2 [1] = 0.57261413f;
             color2 [2] = 0.94509804f;
-            point =  State.colorfinder.findExactColors(MAINSCREEN, color1 , color2 , 50);
         }
 
-        if (inCombat() == false)
-            point = null;
-            point =  State.colorfinder.findExactColors(MAINSCREEN, color1 , color2 , 50);
-            if (point != null){
-                State.mouse.moveRelMouse(new Point(point.x, point.y));
-                State.mouse.mouseClick();
+        //Start StateGetter
+        Thread stateGetter = new Thread(new getState());
+        stateGetter.start();
+
+        //MainLoop
+        while(SlayerGUI.Running = true) {
+            if (getState.CURRENT_STATE == IDLE) {
+                point = null;
+                point = State.colorfinder.findExactColors(MAINSCREEN, color1, color2, 50);
+                if (point != null) {
+                    State.mouse.moveRelMouse(new Point(point.x, point.y));
+                    State.mouse.mouseClick();
+                }
             }
+        }
     }
 
-    private static boolean inCombat(){
-        //Code to search for selection window
-        return true;
-    }
 }

@@ -14,6 +14,7 @@ public class SlayerGUI {
     private JButton startButton;
     private JButton stopButton;
     public JPanel herbPanel;
+    public static boolean Running;
 
     public SlayerGUI() {
         list1.addListSelectionListener(new ListSelectionListener() {
@@ -25,7 +26,14 @@ public class SlayerGUI {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Running = true;
                 Slayer.start();
+            }
+        });
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Running = false;
             }
         });
     }
