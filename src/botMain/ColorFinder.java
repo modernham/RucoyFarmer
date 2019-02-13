@@ -45,13 +45,14 @@ public class ColorFinder {
         return hsb;
     }
 
-    public Point findColors(Rectangle area, float color1[], float color2[], float tol1[], float tol2[], int distance) {
+    public List findColor(Rectangle area, float color1[]) {
         int x1 = area.x + State.window.getPos().x;
         int y1 = area.y + State.window.getPos().y;
         int x2 = area.width;
         int y2 = area.height;
         float[] hsv = new float[2];
         int tempColor, red, blue, green;
+        List<Point> list1= new ArrayList<Point>();
         System.out.println(x1 + ", " + y1);
         BufferedImage image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
 
@@ -60,23 +61,19 @@ public class ColorFinder {
         } catch (IOException e) {
             System.out.println("Exception occured :" + e.getMessage());
         }
-        for (int i = 0; i < image.getWidth(); i++) {
-            for (int j = 0; j < image.getHeight(); j++) {
-                tempColor = image.getRGB(i, j);
+        for (int i = 0; i < image.getWidth(); i++){
+            for (int j = 0; j < image.getHeight(); j++){
+                tempColor = image.getRGB(i,j);
                 red = (tempColor >> 16) & 0xFF;
                 green = (tempColor >> 8) & 0xFF;
-                blue = tempColor & 0xFF;
+                blue = tempColor& 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
-                if ((hsv[0] > color1[0] - tol1[0]) && (hsv[0] < color1[0] + tol1[0]) &&
-                        (hsv[1] > color1[1] - tol1[1]) && (hsv[1] < color1[1] + tol1[0]) &&
-                        (hsv[2] > color1[2] - tol1[2]) && (hsv[2] < color1[2] + tol1[2])) {
-                    System.out.println("Colros found:" + (hsv[0]) + ", " + (hsv[1]));
-                    State.mouse.moveRelMouse(new Point(i + area.x, j + area.y));
-                }
-
+                if((hsv[0] == color1[0]))
+                    list1.add(new Point(i + area.x, j+ area.y));
             }
+
         }
-        return new Point(0, 0);
+        return list1;
     }
 
     public Point findExactColors(Rectangle area, float color1[], float color2[], int distance){

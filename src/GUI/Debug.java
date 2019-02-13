@@ -6,6 +6,6 @@ public class Debug {
     public JPanel debugPanel;
     public  JLabel mousePos;
     public  JTextArea textArea1;
-    private JTextField textField1;
+    public JTextArea textArea2;
 
 }

@@ -27,6 +27,7 @@ public class SlayerGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Running = true;
+                Thread Slayer = new Thread(new Slayer());
                 Slayer.start();
             }
         });

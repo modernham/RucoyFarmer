@@ -6,16 +6,16 @@ import botMain.State;
 import javax.swing.*;
 import java.awt.*;
 
+import static Tools.getState.STATE.ATTACKING;
 import static Tools.getState.STATE.IDLE;
 
-public abstract class Slayer {
+public  class Slayer implements Runnable {
     public static Rectangle MAINSCREEN = new Rectangle(110,82,900,525);
 
     private static  float[] color1 = new float[3], color2 = new float[3];
 
 
-    public static void start(){
-
+    public  void run(){
         //Assign monster Colors
         Point point = new Point();
         System.out.println("Starting Slayer");
@@ -36,6 +36,7 @@ public abstract class Slayer {
         //MainLoop
         while(SlayerGUI.Running = true) {
             if (getState.CURRENT_STATE == IDLE) {
+                System.out.println("IDLE");
                 point = null;
                 point = State.colorfinder.findExactColors(MAINSCREEN, color1, color2, 50);
                 if (point != null) {
@@ -43,7 +44,11 @@ public abstract class Slayer {
                     State.mouse.mouseClick();
                 }
             }
-        }
+            if (getState.CURRENT_STATE == ATTACKING) {
+                System.out.println("ATTACKING");
+            }
+           // System.out.println("Finished Loop Slayer");
+       }
     }
 
 }
