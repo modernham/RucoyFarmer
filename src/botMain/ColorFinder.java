@@ -53,14 +53,7 @@ public class ColorFinder {
         float[] hsv = new float[2];
         int tempColor, red, blue, green;
         List<Point> list1= new ArrayList<Point>();
-        System.out.println(x1 + ", " + y1);
         BufferedImage image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
-
-        try {
-            ImageIO.write(image, "jpg", new File("C://Users/billy/Documents/image.jpg"));
-        } catch (IOException e) {
-            System.out.println("Exception occured :" + e.getMessage());
-        }
         for (int i = 0; i < image.getWidth(); i++){
             for (int j = 0; j < image.getHeight(); j++){
                 tempColor = image.getRGB(i,j);
@@ -68,10 +61,17 @@ public class ColorFinder {
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor& 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
-                if((hsv[0] == color1[0]))
-                    list1.add(new Point(i + area.x, j+ area.y));
+                if((hsv[0] == color1[0]) && (hsv[1] == color1[1])&& (hsv[2] == color1[2])) {
+                    list1.add(new Point(i + area.x, j + area.y));
+                    image.setRGB(i, j, 255);
+                }
             }
 
+        }
+        try {
+            ImageIO.write(image, "jpg", new File("image.jpg"));
+        } catch (IOException e) {
+            System.out.println("Exception occured :" + e.getMessage());
         }
         return list1;
     }
@@ -89,11 +89,6 @@ public class ColorFinder {
         BufferedImage image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
 
 
-        try{
-            ImageIO.write(image, "jpg", new File("C://Users/billy/Documents/image.jpg"));
-        } catch (IOException e) {
-            System.out.println("Exception occured :" + e.getMessage());
-        }
         //Find color1
         for (int i = 0; i < image.getWidth(); i++){
             for (int j = 0; j < image.getHeight(); j++){
@@ -102,8 +97,10 @@ public class ColorFinder {
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor& 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
-                if((hsv[0] == color1[0]))
-                list1.add(new Point(i+ area.x, j+ area.x));
+                if((hsv[0] == color1[0])) {
+                    list1.add(new Point(i + area.x, j + area.x));
+                    image.setRGB(i, j, 255);
+                }
                 }
 
             }
@@ -116,8 +113,10 @@ public class ColorFinder {
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor& 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
-                if((hsv[0] == color2[0]))
-                list2.add(new Point(i + area.x, j+ area.y));
+                if((hsv[0] == color2[0])) {
+                    list2.add(new Point(i + area.x, j + area.y));
+                    image.setRGB(i, j, 255);
+                }
             }
 
         }
@@ -160,6 +159,16 @@ public class ColorFinder {
                 System.out.println("New Best Dist:" + bestDist);
             }
         }
+
+
+        try {
+            ImageIO.write(image, "jpg", new File("image.jpg"));
+        } catch (IOException e) {
+            System.out.println("Exception occured :" + e.getMessage());
+        }
+
+
+
         System.out.println("Found Monsters:" + monsters.size());
         if (monsters.size() == 0)
             return null;
