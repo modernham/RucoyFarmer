@@ -13,6 +13,7 @@ import java.util.List;
 public class ColorFinder {
     public Color pix1 = new Color(0, 0, 0, 0);
     Robot robot;
+    public BufferedImage image;
 
     public ColorFinder() {
         try {
@@ -20,7 +21,13 @@ public class ColorFinder {
         } catch (AWTException e) {
             e.printStackTrace();
         }
+        image = robot.createScreenCapture(new Rectangle( State.window.getPos().x,   State.window.getPos().y, 1280, 720));
 
+    }
+
+    public BufferedImage getScreen(){
+        image = robot.createScreenCapture(new Rectangle( State.window.getPos().x,   State.window.getPos().y, 1280, 720));
+        return image;
     }
 
     public float[] getPixelColor(Point point) {
@@ -53,7 +60,7 @@ public class ColorFinder {
         float[] hsv = new float[2];
         int tempColor, red, blue, green;
         List<Point> list1= new ArrayList<Point>();
-        BufferedImage image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
+        image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
         for (int i = 0; i < image.getWidth(); i++){
             for (int j = 0; j < image.getHeight(); j++){
                 tempColor = image.getRGB(i,j);
@@ -86,7 +93,7 @@ public class ColorFinder {
         List<Point> list1= new ArrayList<Point>();
         List<Point> list2= new ArrayList<Point>();
         List<Point> monsters= new ArrayList<Point>();
-        BufferedImage image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
+        image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
 
 
         //Find color1

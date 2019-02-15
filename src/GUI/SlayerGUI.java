@@ -10,19 +10,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SlayerGUI {
-    private JList list1;
     private JButton startButton;
     private JButton stopButton;
     public JPanel herbPanel;
+    private JButton configureButton;
     public static boolean Running;
 
+    public static JFrame configFrame = new JFrame("Configuration");
+    public static config configGUI = new config();
+
     public SlayerGUI() {
-        list1.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                State.monsterIndex =   list1.getAnchorSelectionIndex();
-            }
-        });
+        configureButton.setEnabled(true);
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,6 +33,17 @@ public class SlayerGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Running = false;
+            }
+        });
+        configureButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                configGUI = new config();
+                configFrame.setSize(500, 600);
+                configFrame.setContentPane(configGUI.frame);
+                configFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                configFrame.pack();
+                configFrame.setVisible(true);
             }
         });
     }

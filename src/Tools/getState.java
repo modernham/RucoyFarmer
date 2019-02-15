@@ -37,6 +37,7 @@ public class getState implements Runnable {
                                         selected = true;
                                         status = "attacking";
                                         DebugThread.debugGUI.textArea2.setText("True");
+
                                         run();
                                     }
                                 }
@@ -50,6 +51,10 @@ public class getState implements Runnable {
                 selected = false;
             status = "notattacking";
                 DebugThread.debugGUI.textArea2.setText("False");
+
+
+
+
 
         }
 

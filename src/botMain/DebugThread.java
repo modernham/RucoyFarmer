@@ -23,7 +23,6 @@ public class DebugThread implements Runnable {
         debugFrame.pack();
         debugFrame.setVisible(true);
 
-        File file = new File("image.jpg");
 
         Thread debugShower = new Thread(new GUI.debugFrame());
         debugShower.start();
