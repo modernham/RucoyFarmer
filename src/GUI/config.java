@@ -1,5 +1,7 @@
 package GUI;
 
+import botMain.State;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -13,8 +15,8 @@ public class config{
     static int trackingSpeed = 10; // How often to move the window (ms)
 
 
-    private JTextArea textArea1;
-    private JTextArea textArea2;
+    public  JTextArea textArea1;
+    public  JTextArea textArea2;
     private JButton color1Button;
     private JButton color2Button;
     private JButton loadConfigurationButton;
@@ -32,6 +34,20 @@ public class config{
             }
         }
         );
+        color2Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Thread chooseFrameShower2 = new Thread(new GUI.chooseFrame2());
+                chooseFrameShower2.start();
+            }
+        });
+        doneButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                State.herbGUI.startButton.setEnabled(true);
+                State.herbGUI.configFrame.dispose();
+            }
+        });
     }
 
 }

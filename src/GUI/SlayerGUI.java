@@ -10,8 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SlayerGUI {
-    private JButton startButton;
-    private JButton stopButton;
+    public JButton startButton;
+    public JButton stopButton;
     public JPanel herbPanel;
     private JButton configureButton;
     public static boolean Running;
@@ -20,6 +20,8 @@ public class SlayerGUI {
     public static config configGUI = new config();
 
     public SlayerGUI() {
+        startButton.setEnabled(false);
+        stopButton.setEnabled(false);
         configureButton.setEnabled(true);
         startButton.addActionListener(new ActionListener() {
             @Override
@@ -27,12 +29,17 @@ public class SlayerGUI {
                 Running = true;
                 Thread Slayer = new Thread(new Slayer());
                 Slayer.start();
+                State.herbGUI.stopButton.setEnabled(true);
+                State.herbGUI.startButton.setEnabled(false);
             }
         });
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 Running = false;
+                State.herbGUI.startButton.setEnabled(true);
+                State.herbGUI.stopButton.setEnabled(false);
             }
         });
         configureButton.addActionListener(new ActionListener() {
@@ -41,7 +48,6 @@ public class SlayerGUI {
                 configGUI = new config();
                 configFrame.setSize(500, 600);
                 configFrame.setContentPane(configGUI.frame);
-                configFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 configFrame.pack();
                 configFrame.setVisible(true);
             }

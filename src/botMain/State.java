@@ -23,6 +23,9 @@ public class State {
     public static JFrame herbFrame = new JFrame("RatSlayer");
     public static SlayerGUI herbGUI = new SlayerGUI();
 
+    //Create ColorsVars
+    public static float[] hsv1 = new float[2];
+    public static float[] hsv2 = new float[2];
 
     public static void createTools()
 

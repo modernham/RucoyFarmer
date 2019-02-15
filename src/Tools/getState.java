@@ -1,6 +1,7 @@
 package Tools;
 
 import GUI.Debug;
+import GUI.SlayerGUI;
 import botMain.DebugThread;
 import botMain.State;
 
@@ -24,7 +25,7 @@ public class getState implements Runnable {
         selectionColor[2] = 0.8117647f;
         List<Point> templist = new ArrayList<Point>();
 
-        while (true) {
+        while (SlayerGUI.Running == true) {
             list1 = State.colorfinder.findColor(MAINSCREEN1, selectionColor);
             System.out.println("Getting State");
             for (int i = 0; i < list1.size(); i++) {

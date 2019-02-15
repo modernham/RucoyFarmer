@@ -17,22 +17,16 @@ public  class Slayer implements Runnable {
         //Assign monster Colors
         Point point = new Point();
         System.out.println("Starting Slayer");
-        switch (State.monsterIndex){
-            case 0:
-            color1 [0] = 0.13586956f;
-            color1 [1] = 1.0f;
-            color1 [2] = 0.72156864f;
-            color2 [0] = 0.036231887f;
-            color2 [1] = 0.57261413f;
-            color2 [2] = 0.94509804f;
-        }
+
+            color1  = State.hsv1;
+            color2 = State.hsv2;
 
         //Start StateGetter
         Thread stateGetter = new Thread(new getState());
         stateGetter.start();
 
         //MainLoop
-        while(SlayerGUI.Running = true) {
+        while(SlayerGUI.Running == true) {
             System.out.println("SlayerLoop");
             if (getState.status == "notattacking") {
                 System.out.println("IDLE");
