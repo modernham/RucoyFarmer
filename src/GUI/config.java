@@ -44,8 +44,20 @@ public class config{
         doneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                State.herbGUI.startButton.setEnabled(true);
+                if ((chooseFrame.colorChosen == true) &&(chooseFrame2.colorChosen ==true)) {
+                    State.herbGUI.startButton.setEnabled(true);
+                }
                 State.herbGUI.configFrame.dispose();
+            }
+        });
+        testConfigurationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                   if ((chooseFrame.colorChosen == true) &&(chooseFrame2.colorChosen ==true)) {
+                    Thread test = new Thread(new GUI.testFrame());
+                    test.start();
+                }else
+                    JOptionPane.showMessageDialog(null, "You must select 2 Colors first.");
             }
         });
     }

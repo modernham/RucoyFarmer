@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class chooseFrame implements Runnable  {
     public float[] hsv1 = new float[2];
+    public static boolean colorChosen = false;
 
     public void run() {
         final JFrame f = new JFrame("Color Picker");
@@ -29,6 +30,7 @@ public class chooseFrame implements Runnable  {
                     public void mouseClicked(MouseEvent e) {
                       State.hsv1 =  State.colorfinder.getPixelColor(State.mouse.getPosition());
                         SlayerGUI.configGUI.textArea2.setText("Hue:" + State.hsv1[0] + "\n Saturation: " + State.hsv1[1] + "\n Brightness: " + State.hsv1[2]);
+                        colorChosen = true;
                       f.dispose();
                     }
                     @Override

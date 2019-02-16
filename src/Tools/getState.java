@@ -15,19 +15,36 @@ public class getState implements Runnable {
     public static String status;
 
     private static float[] selectionColor = new float[3];
+    private static float[] interfaceColor = new float[3];
 
     public boolean selected;
+    public static boolean interfaceOpen;
 
     public void run() {
         List<Point> list1 = new ArrayList<Point>();
         selectionColor[0] = 0.0f;
         selectionColor[1] = 0.7584541f;
         selectionColor[2] = 0.8117647f;
+        interfaceColor[0] = 0.0f;
+        interfaceColor[1] = 0.0f;
+        interfaceColor[2] = 0.7882353f;
         List<Point> templist = new ArrayList<Point>();
 
         while (SlayerGUI.Running == true) {
             list1 = State.colorfinder.findColor(MAINSCREEN1, selectionColor);
-            System.out.println("Getting State");
+
+
+            //Detect Interface
+            if (State.colorfinder.getRelPixelColor(new Point(1065, 63))[2] == interfaceColor[2]){
+                interfaceOpen = true;
+            }
+            else {
+                interfaceOpen = false;
+            }
+
+
+
+            //Detect Selected
             for (int i = 0; i < list1.size(); i++) {
                 for (int j = 0; j < list1.size(); j++) {
                     if ((list1.get(j).x == list1.get(i).x + 57) && (list1.get(j).y == list1.get(i).y)) {

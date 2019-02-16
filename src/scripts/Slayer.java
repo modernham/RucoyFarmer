@@ -27,7 +27,11 @@ public  class Slayer implements Runnable {
 
         //MainLoop
         while(SlayerGUI.Running == true) {
-            System.out.println("SlayerLoop");
+
+            if (getState.interfaceOpen)
+                closeInterface();
+
+
             if (getState.status == "notattacking") {
                 System.out.println("IDLE");
                 point = null;
@@ -49,6 +53,12 @@ public  class Slayer implements Runnable {
                 Thread.currentThread().interrupt();
             }
        }
+    }
+
+    public void closeInterface(){
+        System.out.println("Closing Interface");
+        State.mouse.moveRelMouse(new Point(1064,63));
+        State.mouse.mouseClick();
     }
 
 }
