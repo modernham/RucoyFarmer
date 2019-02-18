@@ -1,8 +1,7 @@
 package botMain;
 
 import GUI.SlayerGUI;
-import GUI.ScriptSelection;
-import scripts.Slayer;
+import GUI.Login;
 
 import javax.swing.*;
 
@@ -11,16 +10,15 @@ public class State {
     //Initial Script Selection Window
     public static String windowName = "NoxPlayer";
     static public WindowHandler window = new WindowHandler(windowName);
-    public static ScriptSelection Gui = new ScriptSelection();
+    public static Login Gui = new Login();
 
     //Tools Creation
     public static ColorFinder colorfinder = new ColorFinder();
     public static Mouse mouse = new Mouse();
-    public static int scriptIndex;
     public static int monsterIndex;
 
     //Create Windows
-    public static JFrame herbFrame = new JFrame("RatSlayer");
+    public static JFrame herbFrame = new JFrame("RucoySlayer");
     public static SlayerGUI herbGUI = new SlayerGUI();
 
     //Create ColorsVars
@@ -33,28 +31,17 @@ public class State {
        windowName = "NoxPlayer";
        window = new WindowHandler(windowName);
        colorfinder = new ColorFinder();
-       Gui = new ScriptSelection();
+       Gui = new Login();
        mouse = new Mouse();
     }
 
     public static void initScript(){
-        switch(scriptIndex){
-            case 0:
                 herbGUI = new SlayerGUI();
                 herbFrame.setSize(500, 600);
                 herbFrame.setContentPane(herbGUI.herbPanel);
                 herbFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                herbFrame.setLocationRelativeTo(null);
                 herbFrame.pack();
                 herbFrame.setVisible(true);
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            default:
-                break;
-        }
     }
 }

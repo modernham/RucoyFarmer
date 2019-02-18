@@ -14,6 +14,16 @@ public class SlayerGUI {
     public JButton stopButton;
     public JPanel herbPanel;
     private JButton configureButton;
+    public JCheckBox useHealthPotionCheckBox;
+    public JCheckBox useManaPotionCheckBox;
+    private JCheckBox useAbilityCheckBox;
+    private JComboBox comboBox1;
+    private JCheckBox hopServerOnWisperCheckBox;
+    public JLabel healthLabel;
+    public JLabel manaLabel;
+    public JLabel hasHealthPot;
+    public JLabel hasManaPot;
+    public JLabel statusLabel;
     public static boolean Running;
 
     public static JFrame configFrame = new JFrame("Configuration");

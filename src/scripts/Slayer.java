@@ -14,6 +14,8 @@ public  class Slayer implements Runnable {
 
 
     public  void run(){
+
+
         //Assign monster Colors
         Point point = new Point();
         System.out.println("Starting Slayer");
@@ -28,12 +30,27 @@ public  class Slayer implements Runnable {
         //MainLoop
         while(SlayerGUI.Running == true) {
 
+            if (getState.dead == true){
+                State.herbGUI.statusLabel.setText("Status: Dead");
+                SlayerGUI.Running = false;
+                State.herbGUI.startButton.setEnabled(true);
+                State.herbGUI.stopButton.setEnabled(false);
+                JOptionPane.showMessageDialog(null, "Bot terminated Reason: Died.");
+            }
+
+
             if (getState.interfaceOpen)
                 closeInterface();
 
+            if ((getState.health *100< 50f)&&(State.herbGUI.useHealthPotionCheckBox.isSelected()))
+                useHealthPot();
+
+            if ((getState.mana *100< 50f)&&(State.herbGUI.useManaPotionCheckBox.isSelected()))
+                useManaPot();
+
 
             if (getState.status == "notattacking") {
-                System.out.println("IDLE");
+                State.herbGUI.statusLabel.setText("Status: Looking for target");
                 point = null;
                 point = State.colorfinder.findExactColors(MAINSCREEN, color1, color2, 50);
                 if (point != null) {
@@ -42,7 +59,7 @@ public  class Slayer implements Runnable {
                 }
             }
             if (getState.status == "attacking") {
-                System.out.println("ATTACKING");
+                State.herbGUI.statusLabel.setText("Status: Attacking");
             }
             try
             {
@@ -59,6 +76,52 @@ public  class Slayer implements Runnable {
         System.out.println("Closing Interface");
         State.mouse.moveRelMouse(new Point(1064,63));
         State.mouse.mouseClick();
+    }
+
+    public void useHealthPot(){
+        if (getState.hasHealthPotion) {
+            State.mouse.moveRelMouse(new Point(53, 619));
+            State.mouse.mouseClick();
+            State.herbGUI.statusLabel.setText("Status: Using Health Potion");
+            try
+            {
+                Thread.sleep(2000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+        }
+        else {
+            SlayerGUI.Running = false;
+            State.herbGUI.startButton.setEnabled(true);
+            State.herbGUI.stopButton.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Bot terminated Reason: No More Health Potions.");
+        }
+    }
+
+    public void useManaPot(){
+        if (getState.hasManaPotion) {
+            State.mouse.moveRelMouse(new Point(53, 513));
+            State.mouse.mouseClick();
+            State.herbGUI.statusLabel.setText("Status: Using Mana Potion");
+            try
+            {
+                Thread.sleep(2000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+        }
+        else{
+            SlayerGUI.Running = false;
+            State.herbGUI.startButton.setEnabled(true);
+            State.herbGUI.stopButton.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Bot terminated Reason: No More Mana Potions.");
+
+        }
+
     }
 
 }

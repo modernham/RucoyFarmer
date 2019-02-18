@@ -88,14 +88,16 @@ public class ColorFinder {
         //Find color1
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
-                tempColor = image.getRGB(i, j);
-                red = (tempColor >> 16) & 0xFF;
-                green = (tempColor >> 8) & 0xFF;
-                blue = tempColor & 0xFF;
-                hsv = Color.RGBtoHSB(red, green, blue, null);
-                if ((hsv[0] == color1[0])) {
-                    list1.add(new Point(i + area.x, j + area.x));
-                    image.setRGB(i, j, 255);
+                if ((i <= image.getWidth()) && (j <= image.getHeight())) {
+                    tempColor = image.getRGB(i, j);
+                    red = (tempColor >> 16) & 0xFF;
+                    green = (tempColor >> 8) & 0xFF;
+                    blue = tempColor & 0xFF;
+                    hsv = Color.RGBtoHSB(red, green, blue, null);
+                    if ((hsv[0] == color1[0])) {
+                        list1.add(new Point(i + area.x, j + area.x));
+                        image.setRGB(i, j, 255);
+                    }
                 }
             }
 
@@ -104,14 +106,16 @@ public class ColorFinder {
         //Find color2
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
-                tempColor = image.getRGB(i, j);
-                red = (tempColor >> 16) & 0xFF;
-                green = (tempColor >> 8) & 0xFF;
-                blue = tempColor & 0xFF;
-                hsv = Color.RGBtoHSB(red, green, blue, null);
-                if ((hsv[0] == color2[0])) {
-                    list2.add(new Point(i + area.x, j + area.y));
-                    image.setRGB(i, j, 255);
+                if ((i <= image.getWidth()) && (j <= image.getHeight())) {
+                    tempColor = image.getRGB(i, j);
+                    red = (tempColor >> 16) & 0xFF;
+                    green = (tempColor >> 8) & 0xFF;
+                    blue = tempColor & 0xFF;
+                    hsv = Color.RGBtoHSB(red, green, blue, null);
+                    if ((hsv[0] == color2[0])) {
+                        list2.add(new Point(i + area.x, j + area.y));
+                        image.setRGB(i, j, 255);
+                    }
                 }
             }
 

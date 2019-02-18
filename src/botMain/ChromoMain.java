@@ -1,12 +1,12 @@
 package botMain;
 
-import GUI.ScriptSelection;
+import GUI.Login;
 
 import javax.swing.*;
 
 
 public class ChromoMain {
-    public static ScriptSelection Gui = new ScriptSelection();
+    public static Login Gui = new Login();
     public static JFrame frame = new JFrame("ChromoScape");
     public static String windowName = "NoxPlayer";
     static public WindowHandler window = new WindowHandler(windowName);
