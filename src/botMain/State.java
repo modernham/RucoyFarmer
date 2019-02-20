@@ -24,11 +24,13 @@ public class State {
     //Create ColorsVars
     public static float[] hsv1 = new float[2];
     public static float[] hsv2 = new float[2];
+    public static float[] ground = new float[2];
 
     public static void createTools()
 
     {
        windowName = "NoxPlayer";
+       window.getPos();
        window = new WindowHandler(windowName);
        colorfinder = new ColorFinder();
        Gui = new Login();

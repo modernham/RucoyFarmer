@@ -16,17 +16,18 @@ public class ColorFinder {
     public BufferedImage image;
 
     public ColorFinder() {
+        State.window.getPos();
         try {
             robot = new Robot();
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        image = robot.createScreenCapture(new Rectangle(State.window.getPos().x, State.window.getPos().y, 1280, 720));
+        image = robot.createScreenCapture(new Rectangle(State.window.returnPos().x, State.window.returnPos().y, 1280, 720));
 
     }
 
     public BufferedImage getScreen() {
-        image = robot.createScreenCapture(new Rectangle(State.window.getPos().x, State.window.getPos().y, 1280, 720));
+        image = robot.createScreenCapture(new Rectangle(State.window.returnPos().x, State.window.returnPos().y, 1280, 720));
         return image;
     }
 
@@ -41,14 +42,14 @@ public class ColorFinder {
     }
 
     public float[] getRelPixelColor(Point point) {
-        Color color = robot.getPixelColor(point.x + State.window.getPos().x, point.y + State.window.getPos().y);
+        Color color = robot.getPixelColor(point.x + State.window.returnPos().x, point.y + State.window.returnPos().y);
         float[] hsb = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
         return hsb;
     }
 
     public List findColor(Rectangle area, float color1[]) {
-        int x1 = area.x + State.window.getPos().x;
-        int y1 = area.y + State.window.getPos().y;
+        int x1 = area.x + State.window.returnPos().x;
+        int y1 = area.y + State.window.returnPos().y;
         int x2 = area.width;
         int y2 = area.height;
         float[] hsv = new float[2];
@@ -57,11 +58,15 @@ public class ColorFinder {
         image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
+                try {
                 tempColor = image.getRGB(i, j);
                 red = (tempColor >> 16) & 0xFF;
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor & 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
+                } catch (ArrayIndexOutOfBoundsException e){
+                    break;
+                }
                 if ((hsv[0] == color1[0]) && (hsv[1] == color1[1]) && (hsv[2] == color1[2])) {
                     list1.add(new Point(i + area.x, j + area.y));
                     image.setRGB(i, j, 255);
@@ -73,8 +78,8 @@ public class ColorFinder {
     }
 
     public Point findExactColors(Rectangle area, float color1[], float color2[], int distance) {
-        int x1 = area.x + State.window.getPos().x;
-        int y1 = area.y + State.window.getPos().y;
+        int x1 = area.x + State.window.returnPos().x;
+        int y1 = area.y + State.window.returnPos().y;
         int x2 = area.width;
         int y2 = area.height;
         float[] hsv = new float[2];
@@ -89,11 +94,15 @@ public class ColorFinder {
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
                 if ((i <= image.getWidth()) && (j <= image.getHeight())) {
+                    try {
                     tempColor = image.getRGB(i, j);
                     red = (tempColor >> 16) & 0xFF;
                     green = (tempColor >> 8) & 0xFF;
                     blue = tempColor & 0xFF;
                     hsv = Color.RGBtoHSB(red, green, blue, null);
+                } catch (ArrayIndexOutOfBoundsException e){
+                    break;
+                }
                     if ((hsv[0] == color1[0])) {
                         list1.add(new Point(i + area.x, j + area.x));
                         image.setRGB(i, j, 255);
@@ -107,11 +116,16 @@ public class ColorFinder {
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
                 if ((i <= image.getWidth()) && (j <= image.getHeight())) {
-                    tempColor = image.getRGB(i, j);
-                    red = (tempColor >> 16) & 0xFF;
-                    green = (tempColor >> 8) & 0xFF;
-                    blue = tempColor & 0xFF;
-                    hsv = Color.RGBtoHSB(red, green, blue, null);
+                    try {
+                        tempColor = image.getRGB(i, j);
+                        red = (tempColor >> 16) & 0xFF;
+                        green = (tempColor >> 8) & 0xFF;
+                        blue = tempColor & 0xFF;
+                        hsv = Color.RGBtoHSB(red, green, blue, null);
+
+                } catch (ArrayIndexOutOfBoundsException e){
+                        break;
+                }
                     if ((hsv[0] == color2[0])) {
                         list2.add(new Point(i + area.x, j + area.y));
                         image.setRGB(i, j, 255);
@@ -168,8 +182,8 @@ public class ColorFinder {
     }
 
     public BufferedImage getTest(Rectangle area, float color1[], float color2[], int distance) {
-        int x1 = area.x + State.window.getPos().x;
-        int y1 = area.y + State.window.getPos().y;
+        int x1 = area.x + State.window.returnPos().x;
+        int y1 = area.y + State.window.returnPos().y;
         int x2 = area.width;
         int y2 = area.height;
         float[] hsv = new float[2];
@@ -183,11 +197,15 @@ public class ColorFinder {
         //Find color1
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
+                try {
                 tempColor = image.getRGB(i, j);
                 red = (tempColor >> 16) & 0xFF;
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor & 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
+            } catch (ArrayIndexOutOfBoundsException e){
+                break;
+            }
                 if ((hsv[0] == color1[0])) {
                     list1.add(new Point(i + area.x, j + area.x));
                 }
@@ -198,11 +216,15 @@ public class ColorFinder {
         //Find color2
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
+                try {
                 tempColor = image.getRGB(i, j);
                 red = (tempColor >> 16) & 0xFF;
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor & 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
+            } catch (ArrayIndexOutOfBoundsException e){
+            break;
+        }
                 if ((hsv[0] == color2[0])) {
                     list2.add(new Point(i + area.x, j + area.y));
                 }

@@ -36,6 +36,7 @@ public class SlayerGUI {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                State.window.getPos();
                 Running = true;
                 Thread Slayer = new Thread(new Slayer());
                 Slayer.start();
@@ -46,15 +47,18 @@ public class SlayerGUI {
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                State.window.getPos();
 
                 Running = false;
                 State.herbGUI.startButton.setEnabled(true);
                 State.herbGUI.stopButton.setEnabled(false);
+                State.herbGUI.statusLabel.setText("Status: Stopped");
             }
         });
         configureButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                State.window.getPos();
                 configGUI = new config();
                 configFrame.setSize(500, 600);
                 configFrame.setContentPane(configGUI.frame);

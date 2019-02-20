@@ -7,6 +7,7 @@
     </constraints>
     <properties/>
     <border type="line" title="Rucoy Slayer">
+      <font name="Showcard Gothic"/>
       <title-color color="-4473925"/>
     </border>
     <children>
