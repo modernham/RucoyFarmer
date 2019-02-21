@@ -21,6 +21,7 @@ public class getState implements Runnable {
     public static float mana;
 
     private static float[] selectionColor = new float[3];
+    private static float[] lootColor = new float[3];
     private static float[] interfaceColor = new float[3];
     private static float[] healthBarColor = new float[3];
     private static float[] manaBarColor = new float[3];
@@ -37,6 +38,7 @@ public class getState implements Runnable {
     public static boolean hasHealthPotion = true;
     public static boolean hasManaPotion = true;
     public static boolean dead = false;
+    public static boolean canLoot = false;
 
     public void run() {
         List<Point> list1 = new ArrayList<Point>();
@@ -55,6 +57,9 @@ public class getState implements Runnable {
         deathBarColor[0] = 0.0f;
         deathBarColor[1] = 0.7584541f;
         deathBarColor[2] = 0.8117647f;
+        lootColor[0] = 0.081081085f;
+        lootColor[1] = 0.74596775f;
+        lootColor[2] = 0.972549f;
         List<Point> templist = new ArrayList<Point>();
 
         while (SlayerGUI.Running == true) {
@@ -68,6 +73,14 @@ public class getState implements Runnable {
             else {
                 interfaceOpen = false;
             }
+
+            //Look for loot
+            if (State.colorfinder.getRelPixelColor(new Point(1067, 217))[1] == lootColor[1]){
+                canLoot = true;
+            }
+            else canLoot = false;
+
+
 
             //Get Health and Mana Information
             healthPoints = State.colorfinder.findColor(healthBar, healthBarColor);

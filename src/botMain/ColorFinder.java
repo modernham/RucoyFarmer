@@ -64,12 +64,11 @@ public class ColorFinder {
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor & 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
-                } catch (ArrayIndexOutOfBoundsException e){
-                    break;
-                }
                 if ((hsv[0] == color1[0]) && (hsv[1] == color1[1]) && (hsv[2] == color1[2])) {
                     list1.add(new Point(i + area.x, j + area.y));
-                    image.setRGB(i, j, 255);
+                }
+                } catch (ArrayIndexOutOfBoundsException e){
+                    break;
                 }
             }
 
@@ -100,13 +99,13 @@ public class ColorFinder {
                     green = (tempColor >> 8) & 0xFF;
                     blue = tempColor & 0xFF;
                     hsv = Color.RGBtoHSB(red, green, blue, null);
-                } catch (ArrayIndexOutOfBoundsException e){
-                    break;
-                }
                     if ((hsv[0] == color1[0])) {
                         list1.add(new Point(i + area.x, j + area.x));
                         image.setRGB(i, j, 255);
                     }
+                } catch (ArrayIndexOutOfBoundsException e){
+                    break;
+                }
                 }
             }
 
@@ -123,13 +122,13 @@ public class ColorFinder {
                         blue = tempColor & 0xFF;
                         hsv = Color.RGBtoHSB(red, green, blue, null);
 
-                } catch (ArrayIndexOutOfBoundsException e){
-                        break;
-                }
                     if ((hsv[0] == color2[0])) {
                         list2.add(new Point(i + area.x, j + area.y));
                         image.setRGB(i, j, 255);
                     }
+                } catch (ArrayIndexOutOfBoundsException e){
+                    break;
+                }
                 }
             }
 
@@ -203,12 +202,12 @@ public class ColorFinder {
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor & 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
-            } catch (ArrayIndexOutOfBoundsException e){
-                break;
-            }
                 if ((hsv[0] == color1[0])) {
                     list1.add(new Point(i + area.x, j + area.x));
                 }
+            } catch (ArrayIndexOutOfBoundsException e){
+                break;
+            }
             }
 
         }
@@ -222,11 +221,11 @@ public class ColorFinder {
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor & 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
-            } catch (ArrayIndexOutOfBoundsException e){
-            break;
-        }
                 if ((hsv[0] == color2[0])) {
                     list2.add(new Point(i + area.x, j + area.y));
+                }
+                } catch (ArrayIndexOutOfBoundsException e){
+                    break;
                 }
             }
 

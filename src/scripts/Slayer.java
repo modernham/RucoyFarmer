@@ -20,6 +20,7 @@ public  class Slayer implements Runnable {
     List<Point> southPoints = new ArrayList<Point>();
     List<Point> eastPoints = new ArrayList<Point>();
     List<Point> westPoints = new ArrayList<Point>();
+    List<String> directions = new ArrayList<String>();
 
     private static  float[] color1 = new float[3], color2 = new float[3];
 
@@ -41,6 +42,9 @@ public  class Slayer implements Runnable {
         //MainLoop
         while(SlayerGUI.Running == true) {
 
+            if (directions.size()> 2)
+                backTrack();
+
             if (getState.dead == true){
                 State.herbGUI.statusLabel.setText("Status: Dead");
                 SlayerGUI.Running = false;
@@ -49,6 +53,11 @@ public  class Slayer implements Runnable {
                 JOptionPane.showMessageDialog(null, "Bot terminated Reason: Died.");
             }
 
+            if ((getState.canLoot == true) && (State.herbGUI.lootCheckBox.isSelected())){
+                State.herbGUI.statusLabel.setText("Status: Looting");
+                State.mouse.moveRelMouse(new Point(1064,217));
+                State.mouse.mouseClick();
+            }
 
             if (getState.interfaceOpen)
                 closeInterface();
@@ -67,6 +76,7 @@ public  class Slayer implements Runnable {
                 if (point == null)
                     navigate();
                 if (point != null) {
+                    directions.clear();
                     State.mouse.moveRelMouse(new Point(point.x, point.y));
                     State.mouse.mouseClick();
                 }
@@ -90,6 +100,36 @@ public  class Slayer implements Runnable {
         State.mouse.moveRelMouse(new Point(1064,63));
         State.mouse.mouseClick();
     }
+
+    public void backTrack(){
+        for (int i = 2; i >= 0; i--){
+            State.herbGUI.statusLabel.setText("Status: Backtracking");
+            Point point = new Point();
+            point = null;
+            point = State.colorfinder.findExactColors(MAINSCREEN, color1, color2, 50);
+            if (point != null)
+            continue;
+
+
+            switch(directions.get(i)){
+                case "north":
+                    navigate("south");
+                    break;
+                case "south":
+                    navigate("north");
+                    break;
+                case "east":
+                    navigate("west");
+                    break;
+                case "west":
+                    navigate("east");
+                    break;
+            }
+        }
+        directions.clear();
+    }
+
+
     public void navigate(){
        northPoints =  State.colorfinder.findColor(north, State.ground);
         southPoints =  State.colorfinder.findColor(south, State.ground);
@@ -104,6 +144,7 @@ public  class Slayer implements Runnable {
                     int value1 = rand.nextInt(northPoints.size());
                     State.mouse.moveRelMouse(new Point(northPoints.get(value1).x, northPoints.get(value1).y));
                     State.mouse.mouseClick();
+                    directions.add("north");
                     try
                     {
                         Thread.sleep(2000);
@@ -120,6 +161,7 @@ public  class Slayer implements Runnable {
                     int value2 = rand.nextInt(southPoints.size());
                     State.mouse.moveRelMouse(new Point(southPoints.get(value2).x, southPoints.get(value2).y));
                     State.mouse.mouseClick();
+                    directions.add("south");
                     try
                     {
                         Thread.sleep(2000);
@@ -136,6 +178,7 @@ public  class Slayer implements Runnable {
                     int value3 = rand.nextInt(eastPoints.size());
                     State.mouse.moveRelMouse(new Point(eastPoints.get(value3).x, eastPoints.get(value3).y));
                     State.mouse.mouseClick();
+                    directions.add("east");
                     try
                     {
                         Thread.sleep(2000);
@@ -148,6 +191,86 @@ public  class Slayer implements Runnable {
                 }
                 break;
             case 3:
+                if (westPoints.size() > 1){
+                    int value4 = rand.nextInt(westPoints.size());
+                    State.mouse.moveRelMouse(new Point(westPoints.get(value4).x, westPoints.get(value4).y));
+                    State.mouse.mouseClick();
+                    directions.add("west");
+                    try
+                    {
+                        Thread.sleep(2000);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        Thread.currentThread().interrupt();
+                    }
+
+                }
+                break;
+            default:
+                break;
+        }
+
+
+    }
+
+    public void navigate(String directionTo){
+        northPoints =  State.colorfinder.findColor(north, State.ground);
+        southPoints =  State.colorfinder.findColor(south, State.ground);
+        eastPoints =  State.colorfinder.findColor(east, State.ground);
+        westPoints =  State.colorfinder.findColor(west, State.ground);
+        Random rand = new Random();
+
+        switch (directionTo){
+            case "north":
+                if (northPoints.size() > 1){
+                    int value1 = rand.nextInt(northPoints.size());
+                    State.mouse.moveRelMouse(new Point(northPoints.get(value1).x, northPoints.get(value1).y));
+                    State.mouse.mouseClick();
+                    try
+                    {
+                        Thread.sleep(2000);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        Thread.currentThread().interrupt();
+                    }
+
+                }
+                break;
+            case "south":
+                if (southPoints.size() > 1){
+                    int value2 = rand.nextInt(southPoints.size());
+                    State.mouse.moveRelMouse(new Point(southPoints.get(value2).x, southPoints.get(value2).y));
+                    State.mouse.mouseClick();
+                    try
+                    {
+                        Thread.sleep(2000);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        Thread.currentThread().interrupt();
+                    }
+
+                }
+                break;
+            case "east":
+                if (eastPoints.size() > 1){
+                    int value3 = rand.nextInt(eastPoints.size());
+                    State.mouse.moveRelMouse(new Point(eastPoints.get(value3).x, eastPoints.get(value3).y));
+                    State.mouse.mouseClick();
+                    try
+                    {
+                        Thread.sleep(2000);
+                    }
+                    catch(InterruptedException ex)
+                    {
+                        Thread.currentThread().interrupt();
+                    }
+
+                }
+                break;
+            case "west":
                 if (westPoints.size() > 1){
                     int value4 = rand.nextInt(westPoints.size());
                     State.mouse.moveRelMouse(new Point(westPoints.get(value4).x, westPoints.get(value4).y));

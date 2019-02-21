@@ -24,6 +24,7 @@ public class SlayerGUI {
     public JLabel hasHealthPot;
     public JLabel hasManaPot;
     public JLabel statusLabel;
+    public JCheckBox lootCheckBox;
     public static boolean Running;
 
     public static JFrame configFrame = new JFrame("Configuration");

@@ -7,34 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8261e7d5-f58d-4223-8148-923d6e3257a5" name="Default Changelist" comment="Changelist&#10;Fixed packages System&#10;Stared working on the findColors Function">
-      <change afterPath="$PROJECT_DIR$/src/GUI/chooseGround.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tools/configSaver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tools/savedColors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ChromoScape_jar/ChromoScape.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ChromoScape_jar/ChromoScape.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/GUI/SlayerGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/GUI/SlayerGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/GUI/SlayerGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/GUI/SlayerGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/GUI/SlayerGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/GUI/SlayerGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/GUI/SlayerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/GUI/SlayerGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/GUI/config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/botMain/ColorFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/botMain/ColorFinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/botMain/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/botMain/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/botMain/WindowHandler$GetWindowRectException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/botMain/WindowHandler$GetWindowRectException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/botMain/WindowHandler$User32.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/botMain/WindowHandler$User32.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/botMain/WindowHandler$WindowNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/botMain/WindowHandler$WindowNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/botMain/WindowHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/botMain/WindowHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChromoScape/scripts/Slayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChromoScape/scripts/Slayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/SlayerGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SlayerGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/SlayerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SlayerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/config.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/config.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tools/getState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools/getState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/botMain/ColorFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botMain/ColorFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/botMain/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botMain/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/botMain/WindowHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/botMain/WindowHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scripts/Slayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/Slayer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -50,8 +26,8 @@
       <file leaf-file-name="SlayerGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/SlayerGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+            <state relative-caret-position="17">
+              <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,8 +50,8 @@
       <file leaf-file-name="getState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tools/getState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+            <state relative-caret-position="391">
+              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/config.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="102" column="145" selection-start-line="102" selection-start-column="145" selection-end-line="102" selection-end-column="145" />
+            <state relative-caret-position="1175">
+              <caret line="94" column="56" selection-start-line="94" selection-start-column="56" selection-end-line="94" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,6 +81,25 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Slayer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scripts/Slayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="110" column="21" lean-forward="true" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#803#810#0" expanded="true" />
+                <element signature="e#857#865#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SlayerGUI.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/SlayerGUI.form">
+          <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
       <file leaf-file-name="savedColors.java" pinned="false" current-in-tab="false">
@@ -129,45 +124,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractButton.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/AbstractButton.java">
+      <file leaf-file-name="ColorFinder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/botMain/ColorFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="2021" selection-start-line="2021" selection-end-line="2021" />
-              <folding>
-                <element signature="e#83435#83436#0" expanded="true" />
-                <element signature="e#83485#83486#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasicButtonListener.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/plaf/basic/BasicButtonListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="251" selection-start-line="251" selection-end-line="251" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultButtonModel.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/DefaultButtonModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="401" selection-start-line="401" selection-end-line="401" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chooseGround.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/chooseGround.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            <state relative-caret-position="1785">
+              <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Robot.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/awt/Robot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="446" selection-start-line="446" selection-end-line="446" />
             </state>
           </provider>
         </entry>
@@ -223,20 +196,20 @@
         <option value="$PROJECT_DIR$/src/GUI/ScriptSelection.form" />
         <option value="$PROJECT_DIR$/src/GUI/Login.java" />
         <option value="$PROJECT_DIR$/src/GUI/Login.form" />
-        <option value="$PROJECT_DIR$/src/Tools/getState.java" />
         <option value="$PROJECT_DIR$/src/botMain/ChromoMain.java" />
         <option value="$PROJECT_DIR$/src/botMain/WindowHandler.java" />
-        <option value="$PROJECT_DIR$/src/botMain/ColorFinder.java" />
-        <option value="$PROJECT_DIR$/src/GUI/SlayerGUI.form" />
         <option value="$PROJECT_DIR$/src/GUI/config.form" />
         <option value="$PROJECT_DIR$/src/botMain/State.java" />
         <option value="$PROJECT_DIR$/src/GUI/groundChoose.java" />
         <option value="$PROJECT_DIR$/src/GUI/chooseGround.java" />
-        <option value="$PROJECT_DIR$/src/scripts/Slayer.java" />
         <option value="$PROJECT_DIR$/src/Tools/savedColors.java" />
         <option value="$PROJECT_DIR$/src/Tools/configSaver.java" />
-        <option value="$PROJECT_DIR$/src/GUI/SlayerGUI.java" />
         <option value="$PROJECT_DIR$/src/GUI/config.java" />
+        <option value="$PROJECT_DIR$/src/botMain/ColorFinder.java" />
+        <option value="$PROJECT_DIR$/src/GUI/SlayerGUI.form" />
+        <option value="$PROJECT_DIR$/src/GUI/SlayerGUI.java" />
+        <option value="$PROJECT_DIR$/src/Tools/getState.java" />
+        <option value="$PROJECT_DIR$/src/scripts/Slayer.java" />
       </list>
     </option>
   </component>
@@ -376,11 +349,11 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5005208" side_tool="true" weight="0.276551" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2372035" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24594258" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.125625" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.125625" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32912722" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -409,17 +382,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/botMain/ColorFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1773#1780#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/botMain/ChromoMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -634,17 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/botMain/ColorFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1773#1780#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/Debug.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -662,23 +613,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/SlayerGUI.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/groundChoose.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="50" lean-forward="true" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scripts/Slayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2856">
-          <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -743,16 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tools/getState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tools/configSaver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -783,16 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/SlayerGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/chooseFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -803,10 +721,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/awt/Robot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="446" selection-start-line="446" selection-end-line="446" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="102" column="145" selection-start-line="102" selection-start-column="145" selection-end-line="102" selection-end-column="145" />
+        <state relative-caret-position="1175">
+          <caret line="94" column="56" selection-start-line="94" selection-start-column="56" selection-end-line="94" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/SlayerGUI.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/SlayerGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tools/getState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/Slayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="110" column="21" lean-forward="true" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#803#810#0" expanded="true" />
+            <element signature="e#857#865#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/botMain/ColorFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
