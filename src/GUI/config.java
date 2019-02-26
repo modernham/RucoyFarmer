@@ -84,7 +84,7 @@ public class config{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if ((chooseFrame.colorChosen == true) &&(chooseFrame2.colorChosen ==true)&&(chooseGround.colorChosen ==true)) {
-                    colors.savedColors(State.hsv1, State.hsv2, State.ground);
+                  //  colors.savedColors(State.hsv1, State.hsv2, State.ground);
                     save.saveConfig(colors);
                 }               else
                     JOptionPane.showMessageDialog(null, "You must select all Colors first.");

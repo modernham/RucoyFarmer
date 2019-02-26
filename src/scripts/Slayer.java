@@ -30,7 +30,6 @@ public  class Slayer implements Runnable {
 
         //Assign monster Colors
         Point point = new Point();
-        System.out.println("Starting Slayer");
 
             color1  = State.hsv1;
             color2 = State.hsv2;

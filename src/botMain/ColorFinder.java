@@ -37,8 +37,19 @@ public class ColorFinder {
         float hue = hsb[0];
         float saturation = hsb[1];
         float brightness = hsb[2];
-
         return hsb;
+    }
+
+    public float[] getPixelColorTest(Point point) {
+        image = robot.createScreenCapture(new Rectangle(State.window.returnPos().x, State.window.returnPos().y, 1300, 900));
+        int tempColor, red, blue, green;
+        float[] hsv = new float[2];
+        tempColor = image.getRGB(point.x, point.y);
+        red = (tempColor >> 16) & 0xFF;
+        green = (tempColor >> 8) & 0xFF;
+        blue = tempColor & 0xFF;
+        hsv = Color.RGBtoHSB(red, green, blue, null);
+        return hsv;
     }
 
     public float[] getRelPixelColor(Point point) {
@@ -92,68 +103,82 @@ public class ColorFinder {
         //Find color1
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
-                if ((i <= image.getWidth()) && (j <= image.getHeight())) {
-                    try {
+                try {
                     tempColor = image.getRGB(i, j);
                     red = (tempColor >> 16) & 0xFF;
                     green = (tempColor >> 8) & 0xFF;
                     blue = tempColor & 0xFF;
                     hsv = Color.RGBtoHSB(red, green, blue, null);
-                    if ((hsv[0] == color1[0])) {
-                        list1.add(new Point(i + area.x, j + area.x));
-                        image.setRGB(i, j, 255);
+                    if ((hsv[0] == color1[0])&&(hsv[1] == color1[1])&&(hsv[2] == color1[2])) {
+                        image.setRGB(i, j, 100);
+                        list1.add(new Point(i + area.x, j + area.y));
                     }
                 } catch (ArrayIndexOutOfBoundsException e){
                     break;
                 }
-                }
             }
 
         }
-        System.out.println("Found Color1:" + list1.size());
         //Find color2
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
-                if ((i <= image.getWidth()) && (j <= image.getHeight())) {
-                    try {
-                        tempColor = image.getRGB(i, j);
-                        red = (tempColor >> 16) & 0xFF;
-                        green = (tempColor >> 8) & 0xFF;
-                        blue = tempColor & 0xFF;
-                        hsv = Color.RGBtoHSB(red, green, blue, null);
-
-                    if ((hsv[0] == color2[0])) {
+                try {
+                    tempColor = image.getRGB(i, j);
+                    red = (tempColor >> 16) & 0xFF;
+                    green = (tempColor >> 8) & 0xFF;
+                    blue = tempColor & 0xFF;
+                    hsv = Color.RGBtoHSB(red, green, blue, null);
+                    if ((hsv[0] == color2[0])&&(hsv[1] == color2[1])&&(hsv[2] == color2[2])) {
+                        image.setRGB(i, j, 10);
                         list2.add(new Point(i + area.x, j + area.y));
-                        image.setRGB(i, j, 255);
                     }
                 } catch (ArrayIndexOutOfBoundsException e){
                     break;
                 }
-                }
             }
 
         }
-        System.out.println("Found Color2:" + list2.size());
-        //See if any of the colors are close enough for the distance
-        if (list1.size() > list2.size()) {
-            for (int i = 0; i < list2.size(); i++) {
-                double ac = Math.abs(list2.get(i).y - list1.get(i).y);
-                double cb = Math.abs(list2.get(i).x - list1.get(i).x);
-                double dist = Math.hypot(ac, cb);
-                if (dist < distance) {
-                    int midX = (list2.get(i).x + list1.get(i).x) / 2;
-                    int midY = (list2.get(i).y + list1.get(i).y) / 2;
-                    monsters.add(new Point(midX, midY));
-                }
+        System.out.println(list1.size());
+        System.out.println(list2.size());
+        //Pad Short List
+        if (list1.size() > list2.size()){
+            System.out.println("List 1 Biger");
+            for(int i =list1.size() - list2.size(); i > 0; i--){
+                list2.add(new Point(0, 0));
             }
-        } else {
-            for (int i = 0; i < list1.size(); i++) {
-                double ac = Math.abs(list1.get(i).y - list2.get(i).y);
-                double cb = Math.abs(list1.get(i).x - list2.get(i).x);
+        }
+        else {
+            System.out.println("List 2 biger");
+            for(int i = list2.size() - list1.size(); i > 0; i--){
+                System.out.println("List Diff " + (list2.size() - list1.size())+ "i is:" + i);
+                list1.add(new Point(0, 0));
+            }
+        }
+
+        System.out.println(list1.size());
+        System.out.println(list2.size());
+
+
+
+
+
+        //See if any of the colors are close enough for the distance
+        for (int i = 0; i < list1.size(); i++) {
+            for (int j = 0; j < list2.size(); j++) {
+
+
+                double ac = Math.abs(list2.get(j).y - list1.get(i).y);
+                double cb = Math.abs(list2.get(j).x - list1.get(i).x);
                 double dist = Math.hypot(ac, cb);
+
+
+
+
+
+
                 if (dist < distance) {
-                    int midX = (list1.get(i).x + list2.get(i).x) / 2;
-                    int midY = (list1.get(i).y + list2.get(i).y) / 2;
+                    int midX = (list2.get(j).x + list1.get(i).x) / 2;
+                    int midY = (list2.get(j).y + list1.get(i).y) / 2;
                     monsters.add(new Point(midX, midY));
                 }
             }
@@ -163,18 +188,16 @@ public class ColorFinder {
         double bestDist = 20000;
         for (int i = 0; i < monsters.size(); i++) {
             double ac = Math.abs(monsters.get(i).y - 334);
-            double cb = Math.abs(list2.get(i).x - 552);
+            double cb = Math.abs(monsters.get(i).x - 552);
             double dist = Math.hypot(ac, cb);
             if (dist < bestDist) {
                 bestDist = dist;
                 bestPoint = i;
-                System.out.println("New Best Dist:" + bestDist);
             }
         }
 
 
 
-        System.out.println("Found Monsters:" + monsters.size());
         if (monsters.size() == 0)
             return null;
         else return new Point(new Point(monsters.get(bestPoint).x, monsters.get(bestPoint).y));
@@ -202,8 +225,9 @@ public class ColorFinder {
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor & 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
-                if ((hsv[0] == color1[0])) {
-                    list1.add(new Point(i + area.x, j + area.x));
+                    if ((hsv[0] == color1[0])&&(hsv[1] == color1[1])&&(hsv[2] == color1[2])) {
+                    image.setRGB(i, j, 100);
+                    list1.add(new Point(i + area.x, j + area.y));
                 }
             } catch (ArrayIndexOutOfBoundsException e){
                 break;
@@ -211,7 +235,6 @@ public class ColorFinder {
             }
 
         }
-        System.out.println("Found Color1:" + list1.size());
         //Find color2
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
@@ -221,7 +244,8 @@ public class ColorFinder {
                 green = (tempColor >> 8) & 0xFF;
                 blue = tempColor & 0xFF;
                 hsv = Color.RGBtoHSB(red, green, blue, null);
-                if ((hsv[0] == color2[0])) {
+                    if ((hsv[0] == color2[0])&&(hsv[1] == color2[1])&&(hsv[2] == color2[2])) {
+                    image.setRGB(i, j, 10);
                     list2.add(new Point(i + area.x, j + area.y));
                 }
                 } catch (ArrayIndexOutOfBoundsException e){
@@ -230,52 +254,65 @@ public class ColorFinder {
             }
 
         }
-        System.out.println("Found Color2:" + list2.size());
-        //See if any of the colors are close enough for the distance
-        if (list1.size() > list2.size()) {
-            for (int i = 0; i < list2.size(); i++) {
-                double ac = Math.abs(list2.get(i).y - list1.get(i).y);
-                double cb = Math.abs(list2.get(i).x - list1.get(i).x);
-                double dist = Math.hypot(ac, cb);
-                if (dist < distance) {
-                    int midX = (list2.get(i).x + list1.get(i).x) / 2;
-                    int midY = (list2.get(i).y + list1.get(i).y) / 2;
-                    image.setRGB(midX- area.x, midY- area.y, 255);
-                    image.setRGB(midX- area.x+1, midY- area.y+1, 255);
-                    image.setRGB(midX- area.x-1, midY- area.y-1, 255);
-                    image.setRGB(midX- area.x+2, midY- area.y+2, 255);
-                    monsters.add(new Point(midX, midY));
-                }
+        System.out.println(list1.size());
+        System.out.println(list2.size());
+        //Pad Short List
+        if (list1.size() > list2.size()){
+            System.out.println("List 1 Biger");
+            for(int i =list1.size() - list2.size(); i > 0; i--){
+                list2.add(new Point(0, 0));
             }
-        } else {
-            for (int i = 0; i < list1.size(); i++) {
-                double ac = Math.abs(list1.get(i).y - list2.get(i).y);
-                double cb = Math.abs(list1.get(i).x - list2.get(i).x);
-                double dist = Math.hypot(ac, cb);
-                if (dist < distance) {
-                    int midX = (list1.get(i).x + list2.get(i).x) / 2;
-                    int midY = (list1.get(i).y + list2.get(i).y) / 2;
-                    image.setRGB(midX- area.x, midY- area.y, 255);
-                    image.setRGB(midX- area.x+1, midY- area.y+1, 255);
-                    image.setRGB(midX- area.x-1, midY- area.y-1, 255);
-                    image.setRGB(midX- area.x+2, midY- area.y+2, 255);
-                    monsters.add(new Point(midX, midY));
-                }
+        }
+        else {
+            System.out.println("List 2 biger");
+            for(int i = list2.size() - list1.size(); i > 0; i--){
+                System.out.println("List Diff " + (list2.size() - list1.size())+ "i is:" + i);
+                list1.add(new Point(0, 0));
             }
         }
 
-        int bestPoint = 1000;
-        double bestDist = 20000;
-        for (int i = 0; i < monsters.size(); i++) {
-            double ac = Math.abs(monsters.get(i).y - 334);
-            double cb = Math.abs(list2.get(i).x - 552);
-            double dist = Math.hypot(ac, cb);
-            if (dist < bestDist) {
-                image.setRGB(monsters.get(i).x- area.x, monsters.get(i).y- area.y, 255);
-                bestDist = dist;
-                bestPoint = i;
+        System.out.println(list1.size());
+        System.out.println(list2.size());
+
+
+
+
+
+        //See if any of the colors are close enough for the distance
+            for (int i = 0; i < list1.size(); i++) {
+                for (int j = 0; j < list2.size(); j++) {
+
+
+                    double ac = Math.abs(list2.get(j).y - list1.get(i).y);
+                    double cb = Math.abs(list2.get(j).x - list1.get(i).x);
+                    double dist = Math.hypot(ac, cb);
+
+
+
+
+
+
+                    if (dist < distance) {
+                        int midX = (list2.get(j).x + list1.get(i).x) / 2;
+                        int midY = (list2.get(j).y + list1.get(i).y) / 2;
+                        image.setRGB(midX - area.x, midY - area.y, 255);
+                        monsters.add(new Point(midX, midY));
+                    }
+                }
             }
-        }
+
+//        int bestPoint = 1000;
+//        double bestDist = 20000;
+//        for (int i = 0; i < monsters.size(); i++) {
+//            double ac = Math.abs(monsters.get(i).y - 334);
+//            double cb = Math.abs(monsters.get(i).x - 552);
+//            double dist = Math.hypot(ac, cb);
+//            if (dist < bestDist) {
+//                image.setRGB(monsters.get(i).x- area.x, monsters.get(i).y- area.y, 255);
+//                bestDist = dist;
+//                bestPoint = i;
+//            }
+//        }
 
 
         //S
