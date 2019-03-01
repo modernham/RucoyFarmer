@@ -39,9 +39,9 @@ public class getState implements Runnable {
     public static boolean hasManaPotion = true;
     public static boolean dead = false;
     public static boolean canLoot = false;
+    public static boolean abilityReady = false;
 
     public void run() {
-        List<Point> list1 = new ArrayList<Point>();
         selectionColor[0] = 0.0f;
         selectionColor[1] = 0.7584541f;
         selectionColor[2] = 0.8117647f;
@@ -61,9 +61,7 @@ public class getState implements Runnable {
         lootColor[1] = 0.74596775f;
         lootColor[2] = 0.972549f;
         List<Point> templist = new ArrayList<Point>();
-
         while (SlayerGUI.Running == true) {
-            list1 = State.colorfinder.findColor(MAINSCREEN1, selectionColor);
 
 
             //Detect Interface
@@ -79,6 +77,18 @@ public class getState implements Runnable {
                 canLoot = true;
             }
             else canLoot = false;
+
+            //Check Ability
+            if(State.herbGUI.useAbilityCheckBox.isSelected()) {
+                if(State.herbGUI.comboBox1.getSelectedIndex() == 0) {
+                    if (State.colorfinder.getRelPixelColor(new Point(62, 378))[1] != 0) {
+                        abilityReady = true;
+                    } else abilityReady = false;
+                }
+            }
+
+
+
 
 
 
@@ -119,53 +129,39 @@ public class getState implements Runnable {
 
 
             //Detect Selected Old
-            for (int i = 0; i < list1.size(); i++) {
-                for (int j = 0; j < list1.size(); j++) {
-                    if ((list1.get(j).x == list1.get(i).x + 57) && (list1.get(j).y == list1.get(i).y)) {
-                        for (int k = 0; k < list1.size(); k++) {
-                            if ((list1.get(k).x == list1.get(i).x) && (list1.get(k).y == list1.get(i).y + 57)) {
-                                for (int l = 0; l < list1.size(); l++) {
-                                    if ((list1.get(l).x == list1.get(i).x + 57) && (list1.get(l).y == list1.get(i).y + 57)) {
-                                        selected = true;
-                                        status = "attacking";
-                                        DebugThread.debugGUI.textArea2.setText("True");
 
-                                        run();
-                                    }
-                                }
-                            }
-
-                        }
-                    }
-
-                }
-            }
-//Detect Selected New
-//            for (int i = 0; i < list1.size(); i++) {
-//                for (int j = 0; j < list1.size(); j++) {
-//                    if ((list1.get(j).x == list1.get(i).x + 57) && (list1.get(j).y == list1.get(i).y)) {
-//                                        selected = true;
-//                                        status = "attacking";
-//                                        DebugThread.debugGUI.textArea2.setText("True");
-//
-//                                        run();
-//
-//
-//                            }
-//
-//                        }
-//                    }
-
-                selected = false;
-            status = "notattacking";
-                DebugThread.debugGUI.textArea2.setText("False");
-
-
-
-
+            isAttacking();000000
 
         }
 
 
+    }
+
+
+    public boolean isAttacking(){
+        List<Point> list1 = new ArrayList<Point>();
+        list1 = State.colorfinder.findColor(MAINSCREEN1, selectionColor);
+        for (int i = 0; i < list1.size(); i++) {
+            for (int j = 0; j < list1.size(); j++) {
+                if ((list1.get(j).x == list1.get(i).x + 57) && (list1.get(j).y == list1.get(i).y)) {
+                    for (int k = 0; k < list1.size(); k++) {
+                        if ((list1.get(k).x == list1.get(i).x) && (list1.get(k).y == list1.get(i).y + 57)) {
+                            for (int l = 0; l < list1.size(); l++) {
+                                if ((list1.get(l).x == list1.get(i).x + 57) && (list1.get(l).y == list1.get(i).y + 57)) {
+                                    selected = true;
+                                    status = "attacking";
+                                    return true;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+        selected = false;
+        status = "notattacking";
+        return false;
     }
 }

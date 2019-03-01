@@ -30,7 +30,7 @@ public class DebugThread implements Runnable {
 
         while (true) {
             debugGUI.mousePos.setText("(" + State.mouse.getRelPosition());
-            //hsb = State.colorfinder.getPixelColor(State.mouse.getPosition());
+            hsb = State.colorfinder.getPixelColor(State.mouse.getPosition());
             debugGUI.textArea1.setText("Hue:" + hsb[0] + "\n Saturation: " + hsb[1] + "\n Brightness: " + hsb[2]);
 
 

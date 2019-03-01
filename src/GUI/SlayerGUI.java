@@ -16,8 +16,8 @@ public class SlayerGUI {
     private JButton configureButton;
     public JCheckBox useHealthPotionCheckBox;
     public JCheckBox useManaPotionCheckBox;
-    private JCheckBox useAbilityCheckBox;
-    private JComboBox comboBox1;
+    public JCheckBox useAbilityCheckBox;
+    public JComboBox comboBox1;
     private JCheckBox hopServerOnWisperCheckBox;
     public JLabel healthLabel;
     public JLabel manaLabel;

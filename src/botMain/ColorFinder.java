@@ -66,7 +66,10 @@ public class ColorFinder {
         float[] hsv = new float[2];
         int tempColor, red, blue, green;
         List<Point> list1 = new ArrayList<Point>();
+        try {
         image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
+        } catch (StackOverflowError e){
+        }
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
                 try {
@@ -97,7 +100,10 @@ public class ColorFinder {
         List<Point> list1 = new ArrayList<Point>();
         List<Point> list2 = new ArrayList<Point>();
         List<Point> monsters = new ArrayList<Point>();
+        try{
         image = robot.createScreenCapture(new Rectangle(x1, y1, x2, y2));
+        } catch (StackOverflowError e){
+        }
 
 
         //Find color1
@@ -142,15 +148,12 @@ public class ColorFinder {
         System.out.println(list2.size());
         //Pad Short List
         if (list1.size() > list2.size()){
-            System.out.println("List 1 Biger");
             for(int i =list1.size() - list2.size(); i > 0; i--){
                 list2.add(new Point(0, 0));
             }
         }
         else {
-            System.out.println("List 2 biger");
             for(int i = list2.size() - list1.size(); i > 0; i--){
-                System.out.println("List Diff " + (list2.size() - list1.size())+ "i is:" + i);
                 list1.add(new Point(0, 0));
             }
         }

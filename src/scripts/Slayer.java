@@ -75,6 +75,8 @@ public  class Slayer implements Runnable {
                 if (point == null)
                     navigate();
                 if (point != null) {
+                    if(getState.abilityReady)
+                        useAbility();
                     directions.clear();
                     State.mouse.moveRelMouse(new Point(point.x, point.y));
                     State.mouse.mouseClick();
@@ -97,6 +99,12 @@ public  class Slayer implements Runnable {
     public void closeInterface(){
         System.out.println("Closing Interface");
         State.mouse.moveRelMouse(new Point(1064,63));
+        State.mouse.mouseClick();
+    }
+
+    public void useAbility(){
+        System.out.println("Using Ability");
+        State.mouse.moveRelMouse(new Point(62, 378));
         State.mouse.mouseClick();
     }
 
